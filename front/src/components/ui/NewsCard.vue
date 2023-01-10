@@ -23,6 +23,7 @@
   </li>
 </template>
 <script setup>
+import {defineProps} from "vue";
 import gsap from "gsap";
 const props = defineProps({
   title: {

@@ -54,7 +54,7 @@
 
 <script setup>
 import gsap from "gsap";
-
+import {defineProps} from "vue";
 const props = defineProps({
   title: {
     type: String,

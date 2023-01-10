@@ -24,7 +24,7 @@
 <script>
 import LinkAdress from '@/components/ui/LinkAdress.vue';
 import NewsHeader from '@/components/ui/NewsHeader.vue';
-import Sidebar from '@/components/ui/Sidebar.vue';
+import Sidebar from '@/components/ui/SidebarApp.vue';
 import NewsContent from '@/components/ui/NewsContent.vue';
 export default {
 name: 'NewsAbout',

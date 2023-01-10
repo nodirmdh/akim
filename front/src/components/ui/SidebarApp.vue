@@ -56,6 +56,7 @@
 </template>
 
 <script setup>
+import {defineProps} from "vue";
 import SidebarItem from "./SidebarItem.vue";
 import gsap from "gsap";
 

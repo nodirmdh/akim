@@ -121,7 +121,7 @@
 
 <script setup>
 import StrategyCard from "@/components/HomeView/StrategyCard.vue";
-import Quote from "@/components/HomeView/Quote.vue";
+import Quote from "@/components/HomeView/QuoteView.vue";
 import LastNews from "@/components/HomeView/LastNews.vue";
 import HomeSvg from "@/components/HomeView/HomeSvg.vue";
 import gsap from "gsap";
