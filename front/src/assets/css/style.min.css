@@ -587,6 +587,17 @@ body.lock {
     display: block;
   }
 }
+@media only screen and (min-width: 1300px) {
+  .burger-decs {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+  }
+  #check2:checked ~ .burger-decs {
+    left: 30px;
+    top: 30px;
+  }
+}
 .burger-line {
   position: absolute;
   display: block;
@@ -632,9 +643,7 @@ body.lock {
   transform: rotate(-135deg);
 }
 
-#check2:checked ~ .burger-decs {
-  left: 20%;
-}
+
 #check2:checked ~ .burger-decs .burger-line:nth-child(1) {
   top: 0.5rem;
   transform: rotate(135deg);
