@@ -3,7 +3,7 @@
     <swiper
       :slidesPerView="3"
       :spaceBetween="50"
-      :slidesPerGroup="3"
+      :slidesPerGroup="1"
       :loop="true"
       :loopFillGroupWithBlank="true"
       :pagination="pagination"

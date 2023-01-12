@@ -1126,6 +1126,7 @@ box-shadow: 3px 5px 22px 0px rgba(34, 60, 80, 0.2);
   border-radius: 12px;
   box-shadow: var(--shadow-large);
   padding: 10px;
+  flex-wrap: wrap;
 }
 .magistry-head h3::after {
   content: "”";
@@ -1236,15 +1237,26 @@ box-shadow: 3px 5px 22px 0px rgba(34, 60, 80, 0.2);
 }
 .news-list-item h1 {
   font-weight: 700;
-  font-size: 21px;
-  line-height: 132%;
-  transition: 0.5s;
+    font-size: 20px;
+    line-height: 132%;
+    transition: 0.5s;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 5px;
 }
 .news-list-item p {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 150%;
-  transition: 0.5s;
+    font-size: 17px;
+    line-height: 150%;
+    transition: 0.5s;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    height: 155px;
 }
 .news-list-item span {
   margin: 10px 0;
@@ -1266,13 +1278,25 @@ box-shadow: 3px 5px 22px 0px rgba(34, 60, 80, 0.2);
   transform: scale(103%);
 }
 .news-list-item:hover h1 {
-  color: var(--color-blue-900);
+  color: #03105c56;
+  text-shadow: 0 0 1px #22034b38,
+              0 0 2px #22034b38,
+              0 0 2px #22034b38,
+              0 0 3px #22034b38;
 }
 .news-list-item:hover span {
   color: rgb(184, 129, 28);
+  text-shadow: 0 0 1px #22034b38,
+              0 0 2px #22034b38,
+              0 0 2px #22034b38,
+              0 0 3px #22034b38;
 }
 .news-list-item:hover p {
   color: var(--color-green-900);
+  text-shadow: 0 0 1px #22034b38,
+              0 0 2px #22034b38,
+              0 0 2px #22034b38,
+              0 0 3px #22034b38;
 }
 @media only screen and (max-width: 995px) {
   .news-list-item {
@@ -1977,6 +2001,7 @@ box-shadow: 3px 5px 22px 0px rgba(34, 60, 80, 0.2);
   justify-content: space-between;
 }
 .feedback-form-btn {
+  margin: 0 auto;
   font-size: 16px;
   line-height: 17px;
   background: var(--color-green-900);
@@ -2158,7 +2183,7 @@ box-shadow: 3px 5px 22px 0px rgba(34, 60, 80, 0.2);
   height: fit-content;
   transition: 0.5s;
   transform: perspective(2000px) rotateY(0deg);
-
+  z-index: -1;
 }
 .guide-img {
   position: absolute;

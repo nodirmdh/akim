@@ -132,9 +132,6 @@ const toggleModal = () => {
   @media only screen and (max-width: 995px)  {
     display: none;
   }
-  &:first-child{
-    opacity: .99;
-  }
   &-mobile{
 
       display: flex;
@@ -223,6 +220,7 @@ const toggleModal = () => {
         }
       }
     }
+  
 
 }
 @media only screen and (min-width: 995px)  {

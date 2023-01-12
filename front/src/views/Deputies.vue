@@ -9,12 +9,10 @@
           <section class="page__content">
             <div class="container">
               <div class="management-head">
-                <transition appear @before-enter="beforeEnter" @enter="enter">
-                  <div data-index="2" class="z-card">
+                
                     <UserCard  img="/images/xakim.jpg" name="Ермашев Женгис Маратович " position="ХЎЖАЙЛИ ТУМАНИ ҲОКИМИ"/>
 
-                  </div>
-                </transition>
+                  
               </div>
             </div>
           </section>
@@ -23,24 +21,16 @@
           <section class="page__content">
             <div class="container">
               <div class="management-flex">
-                <transition appear @before-enter="beforeEnter" @enter="enter">
-                  <div data-index="3" class="z-card">
+                
                     <UserCard  img="/images/111079647.jpg" name="Нодир" position="фронт разраб"/>
 
-                  </div>
-                </transition>
-                <transition appear @before-enter="beforeEnter" @enter="enter">
-                  <div data-index="4" class="z-card">
+                 
                     <UserCard img="/images/111079647.jpg" name="Нодир" position="фронт разраб"/>
 
-                  </div>
-                </transition>
-                <transition appear @before-enter="beforeEnter" @enter="enter">
-                  <div data-index="5" class="z-card">
+                  
                     <UserCard  img="/images/111079647.jpg" name="Нодир" position="фронт разраб"/>
 
-                  </div>
-                </transition>
+                 
 
               </div>
             </div>
