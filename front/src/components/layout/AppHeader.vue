@@ -3,7 +3,7 @@
   <header class="header" id="header">
     <nav class="navbar container">
       <a href="" class="brand"
-        ><img src="/images/value/logo.png" alt="" class="brand-logo" />
+        ><img src="/images/value/emblem_kr.svg" alt="" class="brand-logo" />
         <img src="/images/value/flag.png" alt="" class="brand-logo" />
         <p>
           <strong>{{ $t("City hall") }}</strong>
@@ -25,7 +25,18 @@
 
       <div class="menu" id="menu">
         <ul class="menu-inner">
-          <li class="menu-item">
+          <li v-for="item in menus" :key="item.title"  :class="['menu-item', item.children !== null ? 'menu-link' : '']">
+            <router-link v-if="item.children.length === 0" :to="{ path: item.link }" class="menu-link">{{ $t(item.title) }}</router-link>
+            <a v-else>
+              <span>{{ $t(item.title) }} </span>
+              <ul class="menu-link-list">
+                <li v-for="sub in item.children" :key="sub.title">
+                  <router-link :to="{ path: sub.link }" class="menu-link">{{ $t(sub.title) }}</router-link>
+                </li>
+              </ul>
+            </a>
+          </li>
+<!--          <li class="menu-item">
             <router-link to="/" class="menu-link">{{ $t("Home") }}</router-link>
           </li>
           <li class="menu-item">
@@ -74,7 +85,7 @@
             <router-link to="/more" class="menu-link">{{
               $t("Fighting Corruption")
             }}</router-link>
-          </li>
+          </li>-->
           <ul class="social-lang">
             <li><a @click="uzLang">Ўзб</a></li>
               <li><a @click="kkLang">КК</a></li>
@@ -147,7 +158,6 @@
       </div>
       <div class="social" id="menu">
         <ul class="social-inner">
-          <!-- <h2>Ўзбекистон Республикаси Президентининг расмий веб-сайти</h2> -->
           <div class="social-header">
             <ul class="social-lang">
               <li><a @click="uzLang">Ўзб</a></li>
@@ -163,7 +173,7 @@
               <li>
                 <a
                   target="_blank"
-                  href="https://t.me/shmirziyoyev"
+                  href="https://t.me/hokimgamurojaat"
                   title="Telegram"
                 >
                   <span>
@@ -175,7 +185,7 @@
               <li>
                 <a
                   target="_blank"
-                  href="https://www.facebook.com/Mirziyoyev/?ref=ts&amp;fref=ts"
+                  href="https://www.facebook.com/profile.php?id=100079487263413"
                   title="Facebook"
                 >
                   <span>
@@ -187,7 +197,7 @@
               <li>
                 <a
                   target="_blank"
-                  href="https://www.instagram.com/mirziyoyev_sh/"
+                  href="https://www.instagram.com/xojelirk.uz/"
                   title="Instagram"
                 >
                   <span>
@@ -196,7 +206,7 @@
                   Instagram
                 </a>
               </li>
-              <li>
+<!--              <li>
                 <a
                   target="_blank"
                   href="https://twitter.com/president_uz"
@@ -207,11 +217,11 @@
                   </span>
                   Twitter
                 </a>
-              </li>
+              </li>-->
               <li>
                 <a
                   target="_blank"
-                  href="https://www.youtube.com/channel/UC61Jnumjuz8NXhSuLoZD2xg"
+                  href="https://youtube.com/channel/UCntUKeshWwVn8G4j3WEHw2w"
                   title="Youtube"
                 >
                   <span>
@@ -229,8 +239,62 @@
 </template>
 
 <script setup>
+import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n({ useScope: "global" });
+
+const menus = reactive(
+  [
+    {
+      title: "Home",
+      link: "/",
+      children: [],
+    },
+    {
+      title: "News",
+      link: "/news",
+      children: [],
+    },
+    {
+      title: "Open Data",
+      link: "/opendata",
+      children: [],
+    },
+    {
+      title: "Documents",
+      link: "/documents",
+      children: [],
+    },
+    {
+      title: "Area",
+      link: "about",
+      children: [
+        {
+          title: "About",
+          link: "area",
+        },
+        {
+          title: "General Information",
+          link: "management",
+        },
+        {
+          title: "Peoples deputies",
+          link: "deputies",
+        },
+      ],
+    },
+    {
+      title: "Feedback",
+      link: "/feedback",
+      children: [],
+    },
+    {
+      title: "Fighting Corruption",
+      link: "/anti-core",
+      children: [],
+    },
+  ],
+)
 
 const uzLang = () => {
   locale.value = "uz";

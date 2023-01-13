@@ -18,9 +18,9 @@ const routes = [
     component: () => import('../views/Area.vue')
   },
   {
-    path: '/more',
-    name: 'More',
-    component: () => import('../views/More.vue')
+    path: '/anti-cor',
+    name: 'AntiCor',
+    component: () => import('../views/AntiCor.vue')
   },
   {
     path: '/deputies',

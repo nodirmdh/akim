@@ -3,7 +3,7 @@
     <main class="section">
       <div class="page__wrapper">
         <div class="page__screen screen">
-          <LinkAdress link="/more" title="Борьба с коррупцией"></LinkAdress>
+          <LinkAdress link="/anti-core" title="Борьба с коррупцией"></LinkAdress>
 
           <section class="page__content">
             <div class="container">
