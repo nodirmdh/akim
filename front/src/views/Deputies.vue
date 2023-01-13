@@ -22,13 +22,13 @@
             <div class="container">
               <div class="management-flex">
                 
-                    <UserCard  img="/images/111079647.jpg" name="Нодир" position="фронт разраб"/>
+                    <UserCard  img="https://via.placeholder.com/1920" name="USERNAME" position="POSITION"/>
 
                  
-                    <UserCard img="/images/111079647.jpg" name="Нодир" position="фронт разраб"/>
+                    <UserCard img="https://via.placeholder.com/720" name="USERNAME" position="POSITION"/>
 
                   
-                    <UserCard  img="/images/111079647.jpg" name="Нодир" position="фронт разраб"/>
+                    <UserCard  img="https://via.placeholder.com/360" name="USERNAME" position="POSITION"/>
 
                  
 

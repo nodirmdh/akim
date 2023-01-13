@@ -1,17 +1,11 @@
 <template>
   <div class="news__content">
-    <swiper
-      :slidesPerView="3"
-      :spaceBetween="50"
-      :slidesPerGroup="1"
-      :loop="true"
-      :loopFillGroupWithBlank="true"
-      :pagination="pagination"
-      :navigation="true"
-      :breakpoints="swiperOptions.breakpoints"
-      class="news__list"
-    >
-      <swiper-slide v-for="(news, index) in newsInner" :key="index">
+    <div :class="['news__list', { box: selectList === '2' }]">
+      <div
+        v-for="(news, index) in newsInner"
+        :key="index"
+        class="news__list-card"
+      >
         <transition appear @before-enter="beforeEnter" @enter="enter">
           <news-card
             :title="news.title"
@@ -21,8 +15,8 @@
             :data-index="index"
           />
         </transition>
-      </swiper-slide>
-    </swiper>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,6 +34,13 @@ import SwiperCore, { Pagination, Navigation } from "swiper";
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
+
+const props = defineProps({
+  selectList: {
+    type: String,
+    default: "1",
+  },
+});
 
 const newsInner = [
   {
@@ -248,4 +249,20 @@ const swiperOptions = {
     }
   }
 }
+
+.news__list.box {
+  display: flex;
+  justify-content: space-between;
+}
+.news__list.box .news__list-card{
+  display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+    height: fit-content;
+}
+.news__list.box .news__list-item{
+  flex-direction: column;
+  width: 350px;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <a href="news-item.html">
-    <img src="/images/111079647.jpg" alt="" />
+    <img src="https://via.placeholder.com/480" alt="" />
     <div class="sidebar-list-news-item">
       <h2>{{ title }}</h2>
       <div class="sidebar-list-news-item__info">

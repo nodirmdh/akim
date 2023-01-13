@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition appear @before-enter="beforeEnter" @enter="enter">
-      <img src="/images/111079647.jpg" alt="" class="news-item-img" data-index="1"/>
+      <img src="https://via.placeholder.com/480" alt="" class="news-item-img" data-index="1"/>
     </transition>
     <transition appear @before-enter="beforeEnter" @enter="enter">
       <h1 class="news-item-title" data-index="2">
