@@ -1,9 +1,9 @@
 <template>
     <svg viewbox="0 0 700 225">
                     <clipPath id="textClip" class="filled-heading">
-                      <text y="70">Официальный</text>
-                      <text y="140">сайт хокимията</text>
-                      <text y="210">Ходжейлинского района</text>
+                      <text y="50">{{$t("Official")}}</text>
+                      <text y="100">{{$t("web")}}</text>
+                      <text y="150">{{$t("Region")}}</text>
                     </clipPath>
 
                     <g id="background" clip-path="url(#textClip)">

@@ -6,8 +6,8 @@
         ><img src="/images/value/logo.png" alt="" class="brand-logo" />
         <img src="/images/value/flag.png" alt="" class="brand-logo" />
         <p>
-          <strong>ХАКИМИЯТ</strong>
-          ХОДЖЕЙЛИНСКОГО РАЙОНА
+          <strong>{{ $t("City hall") }}</strong>
+          {{ $t("Region") }}
         </p>
       </a>
       <input type="checkbox" name="" id="check" />
@@ -26,44 +26,60 @@
       <div class="menu" id="menu">
         <ul class="menu-inner">
           <li class="menu-item">
-            <router-link to="/" class="menu-link">Главная</router-link>
+            <router-link to="/" class="menu-link">{{ $t("Home") }}</router-link>
           </li>
           <li class="menu-item">
-            <router-link to="/news" class="menu-link">Новости</router-link>
+            <router-link to="/news" class="menu-link">{{
+              $t("News")
+            }}</router-link>
           </li>
           <li class="menu-item">
-            <router-link to="/opendata" class="menu-link">Открытые данные</router-link>
+            <router-link to="/opendata" class="menu-link">{{
+              $t("Open Data")
+            }}</router-link>
           </li>
           <li class="menu-item">
-            <router-link to="/documents" class="menu-link">Документы</router-link>
+            <router-link to="/documents" class="menu-link">{{
+              $t("Documents")
+            }}</router-link>
           </li>
           <li class="menu-item menu-link">
             <a>
-              <span>О районе </span>
+              <span>{{ $t("Area") }} </span>
               <ul class="menu-link-list">
                 <li>
-                  <router-link to="/area" class="menu-link">Общая информация</router-link>
+                  <router-link to="/area" class="menu-link">{{
+                    $t("About")
+                  }}</router-link>
                 </li>
                 <li>
-                  <router-link to="/management" class="menu-link">Руководство</router-link>
+                  <router-link to="/management" class="menu-link">{{
+                    $t("General Information")
+                  }}</router-link>
                 </li>
                 <li>
-                  <router-link to="/deputies" class="menu-link">Народные депутаты</router-link>
+                  <router-link to="/deputies" class="menu-link">{{
+                    $t("Peoples deputies")
+                  }}</router-link>
                 </li>
               </ul>
             </a>
           </li>
           <li class="menu-item">
-            <router-link to="/feedback" class="menu-link">Обратная связь</router-link>
+            <router-link to="/feedback" class="menu-link">{{
+              $t("Feedback")
+            }}</router-link>
           </li>
           <li class="menu-item">
-            <router-link to="/more" class="menu-link">Борьба с коррупцией</router-link>
+            <router-link to="/more" class="menu-link">{{
+              $t("Fighting Corruption")
+            }}</router-link>
           </li>
           <ul class="social-lang">
-            <li class="active"><a href="https://president.uz/uz">Ўзб</a></li>
-            <li><a href="https://president.uz/oz">O'zb</a></li>
-            <li><a href="https://president.uz/ru">Рус</a></li>
-            <li><a href="https://president.uz/en">Eng</a></li>
+            <li><a @click="uzLang">Ўзб</a></li>
+              <li><a @click="kkLang">КК</a></li>
+              <li><a @click="ruLang">Рус</a></li>
+              <li><a @click="enLang">Eng</a></li>
           </ul>
           <ul class="social-list">
             <li>
@@ -134,10 +150,10 @@
           <!-- <h2>Ўзбекистон Республикаси Президентининг расмий веб-сайти</h2> -->
           <div class="social-header">
             <ul class="social-lang">
-              <li class="active"><a href="https://president.uz/uz">Ўзб</a></li>
-              <li><a href="https://president.uz/oz">O'zb</a></li>
-              <li><a href="https://president.uz/ru">Рус</a></li>
-              <li><a href="https://president.uz/en">Eng</a></li>
+              <li><a @click="uzLang">Ўзб</a></li>
+              <li><a @click="kkLang">КК</a></li>
+              <li><a @click="ruLang">Рус</a></li>
+              <li><a @click="enLang">Eng</a></li>
             </ul>
             <!-- <p> -->
             <br />
@@ -211,3 +227,25 @@
     </nav>
   </header>
 </template>
+
+<script setup>
+import { useI18n } from "vue-i18n";
+const { t, locale } = useI18n({ useScope: "global" });
+
+const uzLang = () => {
+  locale.value = "uz";
+  localStorage.setItem("lang", locale.value);
+};
+const enLang = () => {
+  locale.value = "en";
+  localStorage.setItem("lang", locale.value);
+};
+const ruLang = () => {
+  locale.value = "ru";
+  localStorage.setItem("lang", locale.value);
+};
+const kkLang = () => {
+  locale.value = "kk";
+  localStorage.setItem("lang", locale.value);
+};
+</script>

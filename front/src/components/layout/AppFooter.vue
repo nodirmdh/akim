@@ -17,7 +17,7 @@
             <div class="footer-head">
               <div class="footer-head-title">
                 <transition appear @before-enter="beforeEnter" @enter="enter">
-                  <p data-index="0">Свяжитесь с нами</p>
+                  <p data-index="0">{{$t('ContactUs')}}</p>
                 </transition>
               </div>
 
@@ -25,18 +25,18 @@
               <div class="footer-inner">
                 <transition appear @before-enter="beforeEnter" @enter="enter">
                   <li class="footer-head-text" data-index="1">
-                    <a href=""> Телефон: 0 (361) 554-16-06</a>
+                    <a href=""> {{$t('Phone')}}: 0 (361) 554-16-06</a>
                   </li>
                 </transition>
                 <transition appear @before-enter="beforeEnter" @enter="enter">
                   <li class="footer-head-text" data-index="2">
-                    <a href=""> Эл. почта: xojayli.t@exat.uz</a>
+                    <a href=""> {{$t('Email')}}: xojayli.t@exat.uz</a>
                   </li>
                 </transition>
                 <transition appear @before-enter="beforeEnter" @enter="enter">
                   <li class="footer-head-text" data-index="3">
                     <a href="">
-                      Адрес: Ходжейлинский район, ул. Гарезсизлик д 14</a
+                      {{$t('Adress')}}: {{$t('AdressValue')}}</a
                     >
                   </li>
                 </transition>
@@ -44,30 +44,30 @@
             </div>
             <div class="footer-flex-link">
               <transition appear @before-enter="beforeEnter" @enter="enter">
-                <a href="" data-index="4">Информационно - правовой портал</a>
+                <a href="" data-index="4">{{$t('FooterLinkItem1')}}</a>
               </transition>
               <transition appear @before-enter="beforeEnter" @enter="enter">
                 <a href="" data-index="5"
-                  >МИНИСТЕРСТВО ВЫСШЕГО ОБРАЗОВАНИЯ, НАУКИ И ИННОВАЦИЙ</a
+                  >{{$t('FooterLinkItem2')}}</a
                 >
               </transition>
               <transition appear @before-enter="beforeEnter" @enter="enter">
                 <a href="" data-index="6"
-                  >QONUNCHILIK MA’LUMOTLARI MILLIY BAZASI</a
+                  >{{$t('FooterLinkItem3')}}</a
                 >
               </transition>
               <transition appear @before-enter="beforeEnter" @enter="enter">
-                <a href="" data-index="7">TALIM PORTALI</a>
+                <a href="" data-index="7">{{$t('FooterLinkItem4')}}</a>
               </transition>
               <transition appear @before-enter="beforeEnter" @enter="enter">
                 <a href="" data-index="8"
-                  >Единый портал интерактивных государственных услуг</a
+                  >{{$t('FooterLinkItem5')}}</a
                 >
               </transition>
             </div>
 
             <div class="footer-desc">
-              <p>©2022. Все права защищены.</p>
+              <p>{{$t('FooterCopy')}}</p>
             </div>
           </div>
         </div>

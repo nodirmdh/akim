@@ -12,14 +12,11 @@
                   </h1>
                 </transition>
                 <h1 class="heading-mobile">
-                  Официальный
-                    сайт хокимията
-                    Ходжейлинского района
+                  {{$t('HeaderOfficial')}}
                 </h1>
                 <transition appear @before-enter="beforeEnter" @enter="enter">
                   <h2 class="paragraph" data-index="2">
-                    "Наша цель - мир, прогресс и верховенство закона" - Шавкат
-                    Мирзиёев
+                    "{{$t('HeaderInfo')}}" - {{$t('president')}}
                   </h2>
                 </transition>
               </div>
@@ -31,7 +28,7 @@
             <div class="container">
               <div class="strategy-inner">
                 <h1 class="strategy-title">
-                  Стратегия развития нового Узбекистана на 2022-2026 годы
+                  {{$t('Strategy')}}
                 </h1>
                 <transition-group
                   appear
@@ -84,8 +81,8 @@
             <div class="container">
               <div class="news-inner">
                 <div class="news-head">
-                  <h1>Последние новости</h1>
-                  <a href="">Все новости</a>
+                  <h1> {{$t('Last News')}}</h1>
+                  <a href=""> {{$t('All News')}}</a>
                 </div>
                 <transition-group
                   appear
@@ -127,6 +124,7 @@ import HomeSvg from "@/components/HomeView/HomeSvg.vue";
 import gsap from "gsap";
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { useI18n } from 'vue-i18n';
 
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -134,6 +132,7 @@ import "swiper/scss/pagination";
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination, Navigation } from "swiper";
+const { t, locale } = useI18n({ useScope: "global" })
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
@@ -151,13 +150,13 @@ const newsList = [
     data: "1.1.2020",
   },
   {
-    id: 2,
+    id: 3,
     text: "Ускорение развитие национальной эканомики и обеспечение высоких темпов роста",
     title: "lorem blablalba",
     data: "1.1.2020",
   },
   {
-    id: 2,
+    id: 4,
     text: "Ускорение развитие национальной эканомики и обеспечение высоких темпов роста",
     title: "lorem blablalba",
     data: "1.1.2020",
@@ -167,49 +166,46 @@ const newsList = [
 let strategy = [
   {
     id: 1,
-    text: "Построение гуманного государства путем возвышения чести и достоинства человека и дальнейшего развития свободного гражданского общества",
+    text: `${t('Strategy1')}`,
   },
   {
     id: 2,
-    text: "Превращение принципов справедливости и верховенства закона в основополагающее и необходимиое условие развитие страны",
+    text: `${t('Strategy2')}`,
   },
   {
     id: 3,
-    text: "Ускорение развитие национальной эканомики и обеспечение высоких темпов роста",
+    text: `${t('Strategy3')}`,
   },
   {
     id: 4,
-    text: "Проведение справедливой социальной политики, развитие человеческого капитала",
+    text: `${t('Strategy4')}`,
   },
   {
     id: 5,
-    text: "Опеспечение духовного развития и поднятие данной сферы на новый уровень",
+    text: `${t('Strategy5')}`,
   },
   {
     id: 6,
-    text: "Подход к глобальным проблемам исходя из национальных интересов",
+    text: `${t('Strategy6')}`,
   },
   {
     id: 7,
-    text: "Укрепление безопасности и оборонного потенциала страны, ведение открытой, прагматичной и активной внешней политики",
+    text: `${t('Strategy7')}`,
   },
 ];
 let president = [
   {
-    title: "Шавкат Мирзиеёв",
-    description:
-      "«Каждое государство и каждая нация в мире сильны прежде всего своим интеллектуальным потенциалом, высокой духовностью. А источником этой непобедимой силы являются книги и библиотеки – великое открытие человечества»",
-  },
+    title: `${t('president')}`,
+    description:`${t('Quote1')}`,
+    },
   {
-    title: "Шавкат Мирзиеёв",
-    description:
-      "«Ни один гражданин не должен оставаться один на один со своими проблемами. Настроение населения — зеркало наших реформ и политики. Своевременное реагирование на каждую волнующую людей проблему независимо от ее величины, ее последовательное решение должны быть главным приоритетом руководителей всех уровней».",
-  },
+    title: `${t('president')}`,
+    description:`${t('Quote2')}`,
+ },
   {
-    title: "Шавкат Мирзиеёв",
-    description:
-      "«Будем работать на основе принципа «честь и достоинство человека», во всем будем исходить из проблем народа»",
-  },
+    title: `${t('president')}`,
+    description:`${t('Quote3')}`,
+ },
 ];
 
 const beforeEnter = (el) => {

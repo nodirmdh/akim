@@ -28,7 +28,7 @@
                   <transition appear @before-enter="beforeEnter" @enter="enter">
                     <div  data-index="4">
                       <h2 class="more-subtitle" >ХОДЖЕЙЛИ</h2>
-                      <p class="more-text">У НАС КОРРУПЦИИ НЕТ</p>
+                      <p class="more-text">Lorem ipsum dolor sit amet.</p>
 
                     </div>
 
