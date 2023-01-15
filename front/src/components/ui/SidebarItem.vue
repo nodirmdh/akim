@@ -1,6 +1,6 @@
 <template>
   <a href="news-item.html">
-    <img src="https://via.placeholder.com/480" alt="" />
+    <img :src="img" alt="" />
     <div class="sidebar-list-news-item">
       <h2>{{ title }}</h2>
       <div class="sidebar-list-news-item__info">
@@ -20,6 +20,9 @@ const props = defineProps({
       type: String
   },
   view: {
+      type: String
+  },
+  img: {
       type: String
   },
 

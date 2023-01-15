@@ -43,9 +43,9 @@ const routes = [
     component: () => import('../views/Management')
   },
   {
-    path: '/newsitem',
+    path: '/newsItem/:id',
     name: 'NewsItem',
-    component: () => import('../views/NewsItem.vue')
+    component: () => import('../components/NewsItem.vue')
   },
   {
     path: '/opendata',

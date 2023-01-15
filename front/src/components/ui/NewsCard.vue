@@ -1,7 +1,7 @@
 <template>
   <div class="news__list-item">
     <transition appear @before-enter="beforeEnter" @enter="enter">
-      <img src="https://via.placeholder.com/720" alt="" data-index="1" />
+      <img :src="img" alt="" data-index="1" />
     </transition>
     <div class="news__list-item-text">
       <transition appear @before-enter="beforeEnter" @enter="enter">
@@ -13,7 +13,8 @@
         </p>
       </transition>
       <transition appear @before-enter="beforeEnter" @enter="enter">
-        <a href="news-item.html" data-index="3">Подробнее</a>
+        <a @click="openItem(idx)" data-index="3">Подробнее</a>
+        
       </transition>
       <transition appear @before-enter="beforeEnter" @enter="enter">
         <div class="news__list-item-info" data-index="4">
@@ -22,12 +23,14 @@
         </div>
       </transition>
     </div>
-
   </div>
 </template>
 <script setup>
-import {defineProps} from "vue";
+import { defineProps, ref } from "vue";
 import gsap from "gsap";
+import NewsItem from "@/components/NewsItem.vue";
+
+
 const props = defineProps({
   title: {
     type: String,
@@ -41,12 +44,19 @@ const props = defineProps({
   description: {
     type: String,
   },
+  idx: {
+    type: String,
+  },
+  img: {
+    type: String,
+  },
 });
 const beforeEnter = (el) => {
   el.style.opacity = 0;
   el.style.transform = "translateY(100px)";
   el.style.transition = "1s";
 };
+
 const enter = (el, done) => {
   gsap.to(el, {
     opacity: 1,
@@ -57,3 +67,17 @@ const enter = (el, done) => {
   });
 };
 </script>
+
+<style lang="scss" scoped>
+@media only screen and (max-width: 995px) {
+
+  .news__list.box .news__list-item-text {
+    p {
+      display: none;
+    }
+  }
+  .news__list.box .news__list-item {
+    width: 180px;
+  }
+}
+</style>

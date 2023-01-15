@@ -38,15 +38,16 @@
         >
           <li
             class="sidebar-list-news"
-            v-for="(news, index) in topNews"
+            v-for="(news, index) in requests"
             :key="index"
             :data-index="index"
             :id="news.id"
           >
             <sidebar-item
               :title="news.title"
-              :data="news.data"
+              :data="news.publishedAt"
               :view="news.view"
+              :img="news.urlToImage"
             />
           </li>
         </transition-group>
@@ -56,9 +57,10 @@
 </template>
 
 <script setup>
-import {defineProps} from "vue";
+import {defineProps, onMounted, computed} from "vue";
 import SidebarItem from "./SidebarItem.vue";
 import gsap from "gsap";
+import { useStore } from "vuex";
 
 const topNews = [
   {
@@ -77,6 +79,15 @@ const topNews = [
     view: "1813",
   },
 ];
+
+
+const store = useStore();
+onMounted(async () => {
+  await store.dispatch("request/load");
+});
+const requests = computed(() => store.getters['request/requests'])
+
+
 const beforeEnter = (el) => {
   el.style.opacity = 0;
   el.style.transform = "translateY(100px)";

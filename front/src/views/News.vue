@@ -57,3 +57,11 @@ import { ref } from "vue";
 const selectList = ref('1')
 
 </script>
+
+<style lang="scss" scoped>
+.page__right-sort{
+  input{
+    display: none;
+  }
+}
+</style>

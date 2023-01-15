@@ -2,17 +2,19 @@
   <div class="news__content">
     <div :class="['news__list', { box: selectList === '2' }]">
       <div
-        v-for="(news, index) in newsInner"
+        v-for="(news, index) in requests"
         :key="index"
         class="news__list-card"
       >
         <transition appear @before-enter="beforeEnter" @enter="enter">
           <news-card
+            :img="news.urlToImage"
             :title="news.title"
-            :data="news.data"
-            :view="news.view"
+            data="news.publishedAt"
+            :view="news.url"
             :description="news.description"
             :data-index="index"
+            :idx="index"
           />
         </transition>
       </div>
@@ -23,18 +25,15 @@
 <script setup>
 import NewsCard from "./NewsCard.vue";
 import gsap from "gsap";
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { defineProps, computed, onMounted } from "vue";
+import { useStore } from "vuex";
 
-import "swiper/scss";
-import "swiper/scss/navigation";
-import "swiper/scss/pagination";
+const store = useStore();
 
-// import Swiper core and required modules
-import SwiperCore, { Pagination, Navigation } from "swiper";
-
-// install Swiper modules
-SwiperCore.use([Pagination, Navigation]);
-
+onMounted(async () => {
+  await store.dispatch("request/load");
+});
+const requests = computed(() => store.getters['request/requests'])
 const props = defineProps({
   selectList: {
     type: String,
@@ -42,120 +41,6 @@ const props = defineProps({
   },
 });
 
-const newsInner = [
-  {
-    title: "ХОДЖЕЙЛИ – ЖИВАЯ ИСТОРИЯ!",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "asdasdasd",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "12412432",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "12412432",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "12412432",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "12412432",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "12412432",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "12412432",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "567467457",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "mfgergaeg",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "uykjyshtrh",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "p[kpfisjbfkjs]",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "4357y388573",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "yywrewfef",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "ХОДsadasdasdИЯ!",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-  {
-    title: "Хasdasdasd!",
-    description:
-      "Дошкольное образование первая ступень, целостный процесс , направленный наобеспечение разностороннего развития ребенка дошкольного возраста. В ГДОО №11 Ходжейлийского района",
-    view: "1813",
-    data: "сен 22, 2020",
-  },
-];
 const beforeEnter = (el) => {
   el.style.opacity = 0;
   el.style.transform = "translateX(300px)";
@@ -169,30 +54,6 @@ const enter = (el, done) => {
     onComplete: done,
     delay: el.dataset.index * 0.4,
   });
-};
-let pagination = {
-  clickable: true,
-  renderBullet: function (index, className) {
-    console.log(index, className);
-    return '<span class="' + className + '">' + (index + 1) + "</span>";
-  },
-};
-const swiperOptions = {
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 10,
-    },
-    770: {
-      slidesPerView: 2,
-      spaceBetween: 50,
-    },
-
-    1001: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-  },
 };
 </script>
 
@@ -254,15 +115,20 @@ const swiperOptions = {
   display: flex;
   justify-content: space-between;
 }
-.news__list.box .news__list-card{
+.news__list.box .news__list-card {
   display: flex;
-    flex-direction: column;
-    flex-basis: 45%;
-    height: fit-content;
+  flex-direction: column;
+  flex-basis: 45%;
+  height: fit-content;
 }
-.news__list.box .news__list-item{
+.news__list.box .news__list-item {
   flex-direction: column;
   width: 350px;
 }
-
+@media only screen and (max-width: 995px) {
+  .news__list.box .news__list-item {
+    flex-direction: column;
+    width: 160px;
+  }
+}
 </style>

@@ -7,6 +7,7 @@ import '../src/assets/css/style.min.css'
 import { languages } from './i18n'
 import { defaultLocale } from './i18n'
 import { createI18n, useI18n } from 'vue-i18n'
+import Paginate from 'vuejs-paginate-next'
 
 const localStorageLang = localStorage.getItem('lang')
 
@@ -23,4 +24,4 @@ createApp(App, {
         const {t} = useI18n()
         return {t}
     }
-}).use(store).use(router).use(i18n).mount('#app')
+}).component('Paginate',Paginate).use(store).use(router).use(i18n).mount('#app')
