@@ -2,7 +2,7 @@
   <div class="news__content">
     <div :class="['news__list', { box: selectList === '2' }]">
       <div
-        v-for="(news, index) in requests"
+        v-for="(news, index) in list"
         :key="index"
         class="news__list-card"
       >
@@ -25,22 +25,17 @@
 <script setup>
 import NewsCard from "./NewsCard.vue";
 import gsap from "gsap";
-import { defineProps, computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { defineProps} from "vue";
 
-const store = useStore();
-
-onMounted(async () => {
-  await store.dispatch("request/load");
-});
-const requests = computed(() => store.getters['request/requests'])
 const props = defineProps({
   selectList: {
     type: String,
     default: "1",
   },
+  list: {
+    type: Array
+  }
 });
-
 const beforeEnter = (el) => {
   el.style.opacity = 0;
   el.style.transform = "translateX(300px)";

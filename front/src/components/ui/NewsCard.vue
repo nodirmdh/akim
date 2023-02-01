@@ -70,7 +70,6 @@ const enter = (el, done) => {
 
 <style lang="scss" scoped>
 @media only screen and (max-width: 995px) {
-
   .news__list.box .news__list-item-text {
     p {
       display: none;

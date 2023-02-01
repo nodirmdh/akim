@@ -38,7 +38,7 @@
         >
           <li
             class="sidebar-list-news"
-            v-for="(news, index) in requests"
+            v-for="(news, index) in list"
             :key="index"
             :data-index="index"
             :id="news.id"
@@ -60,33 +60,12 @@
 import {defineProps, onMounted, computed} from "vue";
 import SidebarItem from "./SidebarItem.vue";
 import gsap from "gsap";
-import { useStore } from "vuex";
 
-const topNews = [
-  {
-    title: "ХОДЖЕЙЛИ – ЖИВАЯ ИСТОРИЯ!",
-    data: "сен 22, 2020",
-    view: "1813",
-  },
-  {
-    title: "ХОДЖЕЙЛИ – ЖИВАЯ ИСТОРИЯ!",
-    data: "сен 22, 2020",
-    view: "1813",
-  },
-  {
-    title: "ХОДЖЕЙЛИ – ЖИВАЯ ИСТОРИЯ!",
-    data: "сен 22, 2020",
-    view: "1813",
-  },
-];
-
-
-const store = useStore();
-onMounted(async () => {
-  await store.dispatch("request/load");
+const props = defineProps({
+  list: {
+    type: Array
+  }
 });
-const requests = computed(() => store.getters['request/requests'])
-
 
 const beforeEnter = (el) => {
   el.style.opacity = 0;

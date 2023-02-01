@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
-import request from './module/request.module'
+import news from './module/news.module'
+import openData from './module/openData.module'
+import documents from './module/documents.module'
 
 export default createStore({
   state: {
@@ -11,6 +13,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    request
+    news,openData,documents
   }
 })

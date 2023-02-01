@@ -31,7 +31,7 @@ export default {
             console.log(e)
          }
     },
-    async loadOne({ commit, dispatch }, id) {
+    async loadOne({ commit }, id) {
       try{
         const data = await axios.get(url)
         const requests = data.data.articles[id]
