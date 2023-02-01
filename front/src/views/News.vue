@@ -35,8 +35,8 @@
                   </app-radio>
               </NewsHeader>
               <div class="page__flex">
-                <Sidebar />
-                <NewsContent :select-list="selectList"/>
+                <Sidebar :list="requests"/>
+                <NewsContent :select-list="selectList" :list="requests"/>
               </div>
             </div>
           </section>
@@ -52,7 +52,16 @@ import NewsHeader from "@/components/ui/NewsHeader.vue";
 import Sidebar from "@/components/ui/SidebarApp.vue";
 import NewsContent from "@/components/ui/NewsContent.vue";
 import AppRadio from "@/components/FeedbackView/AppRadio.vue";
-import { ref } from "vue";
+import { ref,computed,onMounted } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
+onMounted(async () => {
+  await store.dispatch("news/load");
+});
+const requests = computed(() => store.getters['news/requests'])
+console.log(requests)
 
 const selectList = ref('1')
 
